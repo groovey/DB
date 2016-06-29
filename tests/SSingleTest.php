@@ -31,9 +31,13 @@ class singleTest extends PHPUnit_Framework_TestCase
     {
         $app = $this->init();
 
+        Database::create();
+
         $results = $app['db']::table('users')->where('id', '>=', 1)->get();
         $this->assertInternalType('array', $results);
 
         $log = $app['db']::connection()->getQueryLog();
+
+        Database::drop();
     }
 }

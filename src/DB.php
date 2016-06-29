@@ -52,6 +52,9 @@ class DB extends Capsule
         unset($server['write']);
         unset($server['read']);
 
+        // Establish a 'default' connection
+        $this->connect(array_merge(['host' => $write], $server), 'default');
+
         // Establish a 'write' connection
         $this->connect(array_merge(['host' => $write], $server), 'write');
 

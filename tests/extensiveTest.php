@@ -51,12 +51,7 @@ class extensiveTest extends PHPUnit_Framework_TestCase
 
     public function testCreateTable()
     {
-        DB::schema()->drop('users');
-        DB::schema()->create('users', function ($table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->timestamps();
-        });
+        Database::create();
     }
 
     public function testRawQueries()
@@ -146,5 +141,10 @@ class extensiveTest extends PHPUnit_Framework_TestCase
         $this->assertInternalType('array', $logs);
         $this->assertCount(count($logs), $logs);
         $this->assertInternalType('string', $logs[0]['query']);
+    }
+
+    public function testClear()
+    {
+        Database::drop();
     }
 }

@@ -32,10 +32,11 @@ class modelsTest extends PHPUnit_Framework_TestCase
     {
         $app = $this->init();
 
-        // Establish a connection first
-        $app['db']::connection();
+        Database::create();
 
         $total = User::count();
         $this->assertEquals(0, $total);
+
+        Database::drop();
     }
 }

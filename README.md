@@ -4,7 +4,7 @@ A Silex 2 service provider that uses the Laravel's ORM component.
 
 ## Installation
 
-    composer require groovey/orm
+    $ composer require groovey/orm
 
 ## Usage
 
@@ -31,7 +31,7 @@ $results = $app['db']::table('users')->where('id', '>=', 1)->get();
 return $results;
 ```
 
-## Reading
+## Documentation
 
-Visit Laravel's database documentation:
+Visit Laravel's database for more info:
 https://laravel.com/docs/master/database

@@ -32,7 +32,7 @@ class modelsTest extends PHPUnit_Framework_TestCase
     {
         $app = $this->init();
 
-        // Weird! Have to establish a connection first
+        // Establish a connection first
         $app['db']::connection();
 
         $user = User::find(1);

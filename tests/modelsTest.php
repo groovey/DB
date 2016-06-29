@@ -35,10 +35,7 @@ class modelsTest extends PHPUnit_Framework_TestCase
         // Establish a connection first
         $app['db']::connection();
 
-        $user = User::find(1);
-        $this->assertEquals(1, $user->id);
-
-        $user = User::where('id', '=', 1)->first();
-        $this->assertEquals(1, $user->id);
+        $total = User::count();
+        $this->assertEquals(0, $total);
     }
 }

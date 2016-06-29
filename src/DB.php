@@ -4,7 +4,7 @@ namespace Groovey\ORM;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
 
-class DB
+class DB extends Capsule
 {
     private $capsule;
     private $app;

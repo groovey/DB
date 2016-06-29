@@ -6,8 +6,4 @@ use Groovey\ORM\Model;
 
 class User extends Model
 {
-    public function test()
-    {
-        echo 'hello world';
-    }
 }

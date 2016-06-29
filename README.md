@@ -1,11 +1,11 @@
 # ORM
 A Silex 2 service provider that uses the Laravel's orm component.
 
-# Installation
+## Installation
 
   composer require groovey/orm
 
-# Usage
+## Usage
 
 ```php
         $app = new Application();
@@ -30,6 +30,6 @@ A Silex 2 service provider that uses the Laravel's orm component.
         return $results;
 ```
 
-# Reading
+## Reading
 
  Visit Laravel's database for more documentation https://laravel.com/docs/master/database

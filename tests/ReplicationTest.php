@@ -3,7 +3,7 @@
 use Silex\Application;
 use Groovey\ORM\Providers\ORMServiceProvider;
 
-class ReplicationTest extends PHPUnit_Framework_TestCase
+class replicationTest extends PHPUnit_Framework_TestCase
 {
     private function init()
     {
@@ -40,7 +40,9 @@ class ReplicationTest extends PHPUnit_Framework_TestCase
         $app = $this->init();
 
         $results = $app['db']::connection('write')->table('users')->where('id', '>=', 1)->get();
+        $this->assertInternalType('array', $results);
 
+        $results = $app['db']::connection('read')->table('users')->where('id', '>=', 1)->get();
         $this->assertInternalType('array', $results);
     }
 }

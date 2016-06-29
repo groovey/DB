@@ -3,7 +3,7 @@
 use Silex\Application;
 use Groovey\ORM\Providers\ORMServiceProvider;
 
-class MultipleTest extends PHPUnit_Framework_TestCase
+class multipleTest extends PHPUnit_Framework_TestCase
 {
     private function init()
     {

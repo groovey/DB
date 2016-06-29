@@ -10,6 +10,7 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Container\Container;
 use Illuminate\Cache\CacheManager;
+use Groovey\ORM\DB;
 
 class ORMServiceProvider implements ServiceProviderInterface, BootableProviderInterface
 {
@@ -52,129 +53,18 @@ class ORMServiceProvider implements ServiceProviderInterface, BootableProviderIn
                 $capsule->bootEloquent();
             }
 
+            $db = new DB($app, $capsule);
+
             if (isset($app['db.connection'])) {
-                $this->setSingleConnection($app, $capsule);
+                $db->connect($app['db.connection'], 'default');
             } elseif (isset($app['db.connections'])) {
-                $this->setMultipleConnection($app, $capsule);
+                $db->connectMultiple($app['db.connections']);
             } elseif (isset($app['db.replication'])) {
-                $this->setReplicationDefaultConnection($app, $capsule);
-                $this->setReplicationConnection($app, $capsule, 'write');
-                $this->setReplicationConnection($app, $capsule, 'read');
+                $db->connectReplication($app['db.replication'], $capsule);
             }
 
             return $capsule;
         };
-    }
-
-    private function setSingleConnection(Application $app, Capsule $capsule)
-    {
-        $server  = $app['db.connection'];
-        $logging = $server['logging'];
-        unset($server['logging']);
-
-        $capsule->addConnection($server, 'default');
-
-        if ($logging) {
-            $capsule->connection('default')->enableQueryLog();
-        } else {
-            $capsule->connection('default')->disableQueryLog();
-        }
-    }
-
-    private function setMultipleConnection(Application $app, Capsule $capsule)
-    {
-        $servers = $app['db.connections'];
-        foreach ($servers as $key => $server) {
-            $logging = $server['logging'];
-            unset($server['logging']);
-
-            $capsule->addConnection($server, $key);
-
-            if ($logging) {
-                $capsule->connection($key)->enableQueryLog();
-            } else {
-                $capsule->connection($key)->disableQueryLog();
-            }
-        }
-    }
-
-    private function setReplicationDefaultConnection(Application $app, Capsule $capsule, $name = 'default')
-    {
-        $server  = $app['db.replication'];
-        $write  = $app['db.replication']['write']['host'];
-
-        $server['host'] = $write;
-
-        unset($server['write']);
-        unset($server['read']);
-
-        $this->connect($capsule, $server, 'default');
-    }
-
-    private function setReplicationConnection(Application $app, Capsule $capsule, $name = 'default')
-    {
-        $server = $app['db.replication'];
-        $hosts  = $app['db.replication'][$name]['host'];
-
-        unset($server['write']);
-        unset($server['read']);
-
-        if ($name == 'write') {
-            $hosts = [$hosts];
-        }
-
-        $connected = false;
-
-        while (!$connected && count($hosts)) {
-            $key  = array_rand($hosts);
-            $host = $hosts[$key];
-
-            $server['host'] = $host;
-
-            $status = $this->connect($capsule, $server, $name);
-
-            if ($status === true) {
-                break;
-            }
-
-            unset($hosts[$key]);
-        }
-    }
-
-    private function connect(Capsule $capsule, array $server, $name)
-    {
-        $logging = $server['logging'];
-        unset($server['logging']);
-
-        $status = $this->checkConnection($server);
-        if (!$status) {
-            return false;
-        }
-
-        $capsule->addConnection($server, $name);
-
-        if ($logging) {
-            $capsule->connection($name)->enableQueryLog();
-        } else {
-            $capsule->connection($name)->disableQueryLog();
-        }
-
-        return true;
-    }
-
-    private function checkConnection($server)
-    {
-        $host     = $server['host'];
-        $username = $server['username'];
-        $password = $server['password'];
-
-        $conn = @new \mysqli($host, $username, $password);
-
-        if ($conn->connect_error) {
-            return false;
-        }
-
-        return true;
     }
 
     public function boot(Application $app)

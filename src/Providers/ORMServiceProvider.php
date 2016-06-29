@@ -33,7 +33,7 @@ class ORMServiceProvider implements ServiceProviderInterface, BootableProviderIn
             };
         }
 
-        $app['db'] = function ($name) use ($app) {
+        $app['db'] = function ($app) {
 
             $capsule = new Capsule($app['db.container']);
             $capsule->setEventDispatcher($app['db.dispatcher']);

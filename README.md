@@ -34,5 +34,4 @@ return $results;
 ## Documentation
 
 Visit Laravel's database for more info:
-
 https://laravel.com/docs/master/database

@@ -31,7 +31,8 @@ $results = $app['db']::table('users')->where('id', '>=', 1)->get();
 return $results;
 ```
 
-## Reading
+## Documentation
 
-Visit Laravel's database for more documentation: 
+Visit Laravel's database for more info:
+
 https://laravel.com/docs/master/database

@@ -3,7 +3,7 @@
 use Silex\Application;
 use Groovey\ORM\Providers\ORMServiceProvider;
 
-class singleTest extends PHPUnit_Framework_TestCase
+class SingleTest extends PHPUnit_Framework_TestCase
 {
     private function init()
     {

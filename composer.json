@@ -1,8 +1,8 @@
 {
-    "name": "groovey/migration",
+    "name": "groovey/orm",
     "description": "A Silex 2 service provider that uses the Laravel's orm component.",
     "license": "MIT",
-    "keywords": ["groovey", "framework", "simple"],
+    "keywords": ["groovey", "framework", "simple" , "laravel" , "silex" , "silex 2", "easy" , "service provider"],
     "authors": [
         {
             "name": "Harold Kim Cantil",

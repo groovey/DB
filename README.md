@@ -1,6 +1,6 @@
 Groovey ORM
 ===========
-A Silex 2 service provider that uses the Laravel's orm component.
+A Silex 2 service provider that uses the Laravel's ORM component.
 
 ## Installation
 
@@ -33,5 +33,5 @@ return $results;
 
 ## Reading
 
-Visit Laravel's database for more documentation: 
+Visit Laravel's database documentation:
 https://laravel.com/docs/master/database

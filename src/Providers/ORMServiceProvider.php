@@ -71,7 +71,7 @@ class ORMServiceProvider implements ServiceProviderInterface, BootableProviderIn
     {
         if ($app['db.eloquent']) {
             $app->before(function () use ($app) {
-                $app['db'];
+                $app['db']::connection();
             }, Application::EARLY_EVENT);
         }
     }

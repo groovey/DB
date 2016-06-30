@@ -6,7 +6,7 @@ A Silex 2 service provider that uses the Laravel's ORM component.
 
     $ composer require groovey/orm
 
-## Usage
+## Setup
 
 ```php
 $app = new Application();

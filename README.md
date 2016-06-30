@@ -9,6 +9,13 @@ A Silex 2 service provider that uses the Laravel's ORM component.
 ## Setup
 
 ```php
+ <?php
+
+require_once __DIR__.'/vendor/autoload.php';
+
+use Silex\Application;
+use Groovey\ORM\Providers\ORMServiceProvider;
+
 $app = new Application();
 $app['debug'] = true;
 
@@ -28,7 +35,7 @@ $app->register(new ORMServiceProvider(), [
 
 $results = $app['db']::table('users')->where('id', '>=', 1)->get();
 
-return $results;
+print_r($results);
 ```
 
 ## Documentation

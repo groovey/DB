@@ -1,4 +1,4 @@
-# Groovey ORM
+# ORM
 
 Groovey ORM Package
 

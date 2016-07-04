@@ -1,6 +1,6 @@
 # Groovey ORM
 
-A Silex 2 service provider that uses the Laravel's ORM component.
+Groovey ORM Package
 
 ## Installation
 

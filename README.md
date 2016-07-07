@@ -6,7 +6,7 @@ Groovey ORM Package
 
     $ composer require groovey/orm
 
-## Setup
+## Usage
 
 ```php
  <?php

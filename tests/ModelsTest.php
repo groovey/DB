@@ -6,7 +6,9 @@ use Groovey\ORM\Models\User;
 
 class ModelsTest extends PHPUnit_Framework_TestCase
 {
-    private function init()
+    public $app;
+
+    public function setUp()
     {
         $app = new Application();
         $app['debug'] = true;
@@ -30,7 +32,7 @@ class ModelsTest extends PHPUnit_Framework_TestCase
 
     public function test()
     {
-        $app = $this->init();
+        $app = $this->app;
 
         Database::create();
 

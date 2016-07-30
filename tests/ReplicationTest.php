@@ -5,7 +5,9 @@ use Groovey\ORM\Providers\ORMServiceProvider;
 
 class ReplicationTest extends PHPUnit_Framework_TestCase
 {
-    private function init()
+    public $app;
+
+    public function setUp()
     {
         $app = new Application();
         $app['debug'] = true;
@@ -32,12 +34,12 @@ class ReplicationTest extends PHPUnit_Framework_TestCase
             ],
         ]);
 
-        return $app;
+        $this->app = $app;
     }
 
     public function test()
     {
-        $app = $this->init();
+        $app = $this->app;
 
         Database::create();
 

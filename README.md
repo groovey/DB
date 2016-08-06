@@ -19,7 +19,7 @@ use Groovey\DB\Providers\DBServiceProvider;
 $app = new Application();
 $app['debug'] = true;
 
-$app->register(new DBerviceProvider(), [
+$app->register(new DBServiceProvider(), [
     'db.connection' => [
         'host'      => 'localhost',
         'driver'    => 'mysql',

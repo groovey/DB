@@ -1,9 +1,9 @@
 <?php
 
 use Silex\Application;
-use Groovey\ORM\Providers\ORMServiceProvider;
-use Groovey\ORM\Models\User;
-use Groovey\ORM\DB;
+use Groovey\DB\Providers\DBServiceProvider;
+use Groovey\DB\Models\User;
+use Groovey\DB\DB;
 
 class ExtensiveTest extends PHPUnit_Framework_TestCase
 {
@@ -16,7 +16,7 @@ class ExtensiveTest extends PHPUnit_Framework_TestCase
         $app = new Application();
         $app['debug'] = true;
 
-        $app->register(new ORMServiceProvider(), [
+        $app->register(new DBServiceProvider(), [
             'db.connection' => [
                 'host'      => 'localhost',
                 'driver'    => 'mysql',
@@ -108,7 +108,7 @@ class ExtensiveTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(0, $count);
     }
 
-    public function testEloquentORM()
+    public function testEloquentDB()
     {
         DB::table('users')->truncate();
 
@@ -123,7 +123,7 @@ class ExtensiveTest extends PHPUnit_Framework_TestCase
 
         // Select
         $user = User::find($id);
-        $this->assertInstanceOf('\Groovey\ORM\Models\User', $user);
+        $this->assertInstanceOf('\Groovey\DB\Models\User', $user);
         $this->assertEquals(static::NAME, $user->name);
 
         // Delete

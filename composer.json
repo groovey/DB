@@ -1,8 +1,8 @@
 {
-    "name": "groovey/orm",
-    "description": "Groovey ORM Package.",
+    "name": "groovey/db",
+    "description": "Groovey DB Package.",
     "license": "MIT",
-    "keywords": ["groovey", "framework", "simple" , "laravel" , "silex" , "silex 2", "easy" , "service provider"],
+    "keywords": ["silex"],
     "authors": [
         {
             "name": "Harold Kim Cantil",
@@ -16,7 +16,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Groovey\\ORM\\": "src"
+            "Groovey\\DB\\": "src"
         }
     }
 }

@@ -1,10 +1,10 @@
-# ORM
+# DB
 
-Groovey ORM Package
+Groovey DB Package
 
 ## Installation
 
-    $ composer require groovey/orm
+    $ composer require groovey/db
 
 ## Usage
 
@@ -14,16 +14,16 @@ Groovey ORM Package
 require_once __DIR__.'/vendor/autoload.php';
 
 use Silex\Application;
-use Groovey\ORM\Providers\ORMServiceProvider;
+use Groovey\DB\Providers\DBServiceProvider;
 
 $app = new Application();
 $app['debug'] = true;
 
-$app->register(new ORMServiceProvider(), [
+$app->register(new DBerviceProvider(), [
     'db.connection' => [
         'host'      => 'localhost',
         'driver'    => 'mysql',
-        'database'  => 'test',
+        'database'  => 'test_db',
         'username'  => 'root',
         'password'  => '',
         'charset'   => 'utf8',

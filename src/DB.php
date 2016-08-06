@@ -1,6 +1,6 @@
 <?php
 
-namespace Groovey\ORM;
+namespace Groovey\DB;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
 

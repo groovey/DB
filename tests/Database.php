@@ -1,6 +1,6 @@
 <?php
 
-use Groovey\ORM\DB;
+use Groovey\DB\DB;
 
 class Database
 {

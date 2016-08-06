@@ -1,8 +1,8 @@
 <?php
 
 use Silex\Application;
-use Groovey\ORM\Providers\ORMServiceProvider;
-use Groovey\ORM\Models\User;
+use Groovey\DB\Providers\DBServiceProvider;
+use Groovey\DB\Models\User;
 
 class ModelsTest extends PHPUnit_Framework_TestCase
 {

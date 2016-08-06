@@ -1,8 +1,8 @@
 <?php
 
-namespace Groovey\ORM\Models;
+namespace Groovey\DB\Models;
 
-use Groovey\ORM\Model;
+use Groovey\DB\Model;
 
 class User extends Model
 {

@@ -1,7 +1,7 @@
 <?php
 
 use Silex\Application;
-use Groovey\ORM\Providers\ORMServiceProvider;
+use Groovey\DB\Providers\DBServiceProvider;
 
 class SingleTest extends PHPUnit_Framework_TestCase
 {
@@ -12,7 +12,7 @@ class SingleTest extends PHPUnit_Framework_TestCase
         $app = new Application();
         $app['debug'] = true;
 
-        $app->register(new ORMServiceProvider(), [
+        $app->register(new DBServiceProvider(), [
             'db.connection' => [
                 'host'      => 'localhost',
                 'driver'    => 'mysql',

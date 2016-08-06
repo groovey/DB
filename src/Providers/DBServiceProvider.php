@@ -1,6 +1,6 @@
 <?php
 
-namespace Groovey\ORM\Providers;
+namespace Groovey\DB\Providers;
 
 use Pimple\Container as PimpleContainer;
 use Pimple\ServiceProviderInterface;
@@ -10,9 +10,9 @@ use Illuminate\Database\Capsule\Manager as Capsule;
 use Illuminate\Events\Dispatcher;
 use Illuminate\Container\Container;
 use Illuminate\Cache\CacheManager;
-use Groovey\ORM\DB;
+use Groovey\DB\DB;
 
-class ORMServiceProvider implements ServiceProviderInterface, BootableProviderInterface
+class DBServiceProvider implements ServiceProviderInterface, BootableProviderInterface
 {
     public function register(PimpleContainer $app)
     {

@@ -20,7 +20,7 @@ class ExtensiveTest extends PHPUnit_Framework_TestCase
             'db.connection' => [
                 'host'      => 'localhost',
                 'driver'    => 'mysql',
-                'database'  => 'test',
+                'database'  => 'test_db',
                 'username'  => 'root',
                 'password'  => '',
                 'charset'   => 'utf8',

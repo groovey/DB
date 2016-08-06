@@ -17,7 +17,7 @@ class MultipleTest extends PHPUnit_Framework_TestCase
                 'default' => [
                     'host'      => 'localhost',
                     'driver'    => 'mysql',
-                    'database'  => 'test',
+                    'database'  => 'test_db',
                     'username'  => 'root',
                     'password'  => '',
                     'charset'   => 'utf8',
@@ -28,7 +28,7 @@ class MultipleTest extends PHPUnit_Framework_TestCase
                 'migration' => [
                     'host'      => 'localhost',
                     'driver'    => 'mysql',
-                    'database'  => 'test',
+                    'database'  => 'test_db',
                     'username'  => 'root',
                     'password'  => '',
                     'charset'   => 'utf8',

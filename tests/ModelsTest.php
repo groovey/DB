@@ -13,11 +13,11 @@ class ModelsTest extends PHPUnit_Framework_TestCase
         $app = new Application();
         $app['debug'] = true;
 
-        $app->register(new ORMServiceProvider(), [
+        $app->register(new DBServiceProvider(), [
             'db.connection' => [
                 'host'      => 'localhost',
                 'driver'    => 'mysql',
-                'database'  => 'test',
+                'database'  => 'test_db',
                 'username'  => 'root',
                 'password'  => '',
                 'charset'   => 'utf8',

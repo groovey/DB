@@ -2,7 +2,7 @@
     "name": "groovey/db",
     "description": "Groovey DB Package.",
     "license": "MIT",
-    "keywords": ["silex"],
+    "keywords": ["silex", "groovey"],
     "authors": [
         {
             "name": "Harold Kim Cantil",
